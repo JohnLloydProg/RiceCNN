@@ -54,7 +54,7 @@ class MainScreen(Screen):
 
 class MainApp(App):
     sm = ScreenManager()
-    model = keras.models.load_model('./model')
+    model = keras.models.load_model('./model.h5')
     print(model.summary())
 
     def build(self):
