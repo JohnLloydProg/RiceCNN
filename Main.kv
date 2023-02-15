@@ -1,0 +1,26 @@
+<MainScreen>:
+    GridLayout:
+        size_hint: 1, 1
+        rows: 2
+        Image:
+            id: stream
+            size_hint: 1, 0.7
+            allow_stretch: True
+            keep_ration: True
+        GridLayout:
+            size_hint: 1, 0.3
+            cols: 2
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 1, 1
+                TextInput:
+                    size_hint: 1, 1
+                    multiline: False
+                    on_text_validate: root.update_ip_address(self)
+                Label:
+                    id: label
+                    size_hint: 1, 1
+            Button:
+                text: 'Assess'
+                on_press: root.check()
+                
