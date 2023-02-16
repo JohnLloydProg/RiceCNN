@@ -2,12 +2,17 @@ from kivy.app import App
 from kivy.clock import Clock
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.lang import Builder
+from kivy.config import Config
 from kivy.graphics.texture import Texture
 import numpy as np
 import settings
 import tensorflow
 import cam
 import cv2
+
+Config.set('graphics', 'resizable', '0')
+Config.set('graphics', 'width', '480')
+Config.set('graphics', 'height', '320')
 
 Builder.load_file('Main.kv')
 
