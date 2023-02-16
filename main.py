@@ -5,7 +5,7 @@ from kivy.lang import Builder
 from kivy.graphics.texture import Texture
 import numpy as np
 import settings
-import keras
+import tensorflow
 import cam
 import cv2
 
@@ -13,6 +13,7 @@ Builder.load_file('Main.kv')
 
 class MainScreen(Screen):
     def on_enter(self, *args):
+        self.ret = None
         self.app = App.get_running_app()
         self.url = ""
         self.stream = Clock.schedule_interval(self.update_stream, 0.3)
@@ -54,7 +55,7 @@ class MainScreen(Screen):
 
 class MainApp(App):
     sm = ScreenManager()
-    model = keras.models.load_model('./model.h5')
+    model = tensorflow.keras.models.load_model('./logs/model.h5')
     print(model.summary())
 
     def build(self):
